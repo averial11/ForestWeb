@@ -1,0 +1,64 @@
+@use './colors' as c;
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+	scroll-padding-top: 155px;
+}
+
+body {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 1.6rem;
+}
+
+.wrapper {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1200px;
+}
+
+.nav {
+	position: sticky;
+	background-color: #a3a5a0;
+	.nav-mobile {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0.4em;
+		font-size: 3rem;
+		&__list {
+			position: absolute;
+			transform: translateY(-1000px);
+			background-color: black;
+			width: 100%;
+			transition: transform 0.3s;
+			li {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				padding: 1em;
+				a {
+					text-decoration: none;
+					color: #fff;
+					padding: 1.5em;
+				}
+			}
+		}
+	}
+	.show {
+		transform: translateY(0px);
+	}
+}
