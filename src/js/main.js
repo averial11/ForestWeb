@@ -1,6 +1,7 @@
 const burgerBtn = document.querySelector('.hamburger')
 const navMobile = document.querySelector('.nav-mobile__list')
 const navMobileLink = document.querySelectorAll('.nav-mobile__link')
+const sections = document.querySelectorAll('.animated-section');
 
 const showNav = () => {
 	burgerBtn.classList.toggle('is-active')
