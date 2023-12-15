@@ -124,7 +124,7 @@ body {
   position: relative;
   height: 40vh;
   margin-top: 10px;
-  background-image: url("/dist/img/jungle-S.jpg");
+  background-image: url("/dist/");
   background-size: cover;
   background-position-y: 70%;
   z-index: -9999;
