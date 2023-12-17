@@ -170,7 +170,7 @@ body {
 	width: 100%;
 	padding: 4em 0;
 	margin-top: 1.5em;
-	background-image: url('/dist/img/girl-S.jpg');
+	background-image: url('../img/girl-S.jpg');
 	background-size: cover;
 	background-position-y: 50%;
 	&__frame {
@@ -780,7 +780,7 @@ footer {
 		}
 	}
 	.adventure {
-		background-image: url('/dist/img/girl-XL.jpg');
+		background-image: url('../img/girl-xl.jpg');
 	}
 	.offers {
 		&__container {
