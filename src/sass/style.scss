@@ -11,12 +11,17 @@
 html {
 	font-size: 62.5%;
 	scroll-behavior: smooth;
-	scroll-padding-top: 155px;
+	scroll-padding-top: 80px;
 }
 
 body {
 	font-family: 'Montserrat', sans-serif;
 	font-size: 1.6rem;
+	overflow: auto;
+}
+
+body.no-scroll {
+	overflow: hidden;
 }
 
 .wrapper {
@@ -313,8 +318,9 @@ body {
 		p {
 			font-size: 1.8rem;
 		}
-		span {
+		a {
 			position: relative;
+			color: $black;
 			text-decoration: underline;
 			text-decoration-color: $green;
 			z-index: 0;
@@ -323,7 +329,7 @@ body {
 				text-decoration: none;
 			}
 		}
-		span::after {
+		a::after {
 			content: '';
 			position: absolute;
 			bottom: 0;
@@ -334,7 +340,7 @@ body {
 			z-index: -1;
 			transition: height 0.3s;
 		}
-		span:hover::after {
+		a:hover::after {
 			height: 100%;
 		}
 	}
@@ -438,79 +444,113 @@ body {
 }
 
 .contact {
-	padding: 3em;
+	padding: 1.5em 0em;
 	h2 {
 		text-align: center;
-		font-size: 1.8rem;
+		font-size: 2.6rem;
 		font-weight: 400;
 		text-transform: uppercase;
-		padding-bottom: 1.5em;
 	}
-	&__container {
-		box-shadow: 0px 0px 5px 3px $gray;
-		padding: 1.5em;
+	form {
+		padding: 40px;
+		font-size: 2rem;
 	}
-	&__info {
-		display: flex;
-		flex-direction: column;
-		&-title {
-			text-align: center;
-			h3 {
-				padding-bottom: 1em;
-			}
-		}
-		&-adress {
-			padding: 1em 0;
-			text-align: center;
-			list-style: none;
-			li {
-				padding: 0.5em 0;
-			}
-			i {
-				margin: 0 0.5em;
-			}
-		}
-	}
-	&__form,
-	&__form-name,
-	&__form-subject {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: stretch;
+	&__form-box {
+		margin-bottom: 15px;
 		label {
-			margin: 1em 0;
+			display: inline-block;
+			margin-bottom: 5px;
 		}
 		input {
-			border: none;
-			border-bottom: 2px solid $dark-gray;
-			padding: 1em 0;
 			width: 100%;
+			padding: 10px;
+			font-size: 1.6rem;
+			border: 1px solid rgb(197, 197, 197);
+			border-radius: 5px;
 		}
-		textarea {
+
+		&.error input,
+		&.error textarea {
+			border: 1px solid rgb(0, 137, 250);
+			background-color: rgba(0, 137, 250, 0.1);
+		}
+		.error-text {
+			visibility: hidden;
+			margin: 5px 0 0 10px;
+			font-size: 1.4rem;
+			color: rgb(0, 137, 250);
+		}
+		&.error .error-text {
+			visibility: visible;
+		}
+		.text-area {
+			width: 100%;
+			font-size: 1.6rem;
+			padding: 1em;
+		}
+	}
+	&__control-buttons {
+		display: flex;
+		justify-content: flex-end;
+		.send,
+		.clear {
+			display: block;
+			padding: 10px 0;
+			margin-left: 10px;
+			width: 100px;
+			font-size: 18px;
+			background-color: rgb(0, 140, 255);
+			color: #fff;
 			border: none;
-			border-bottom: 2px solid $dark-gray;
-			resize: vertical;
-			max-height: 200px;
-		}
-		&-btn {
-			padding: 1em 0.5em;
-			margin-top: 2em;
-			border: 1px solid $gray;
 			border-radius: 8px;
-			background-color: $white;
-			box-shadow: 0px 0px 5px 3px $gray;
-			font-size: 1.8rem;
-			color: $dark-gray;
-			transition: scale 0.3s, box-shadow 0.3s;
+			cursor: pointer;
+			transition: background-color 0.3s;
 			&:hover {
-				cursor: pointer;
-				scale: 0.95;
-				box-shadow: 0px 0px 5px 3px $green;
+				background-color: rgb(0, 107, 194);
 			}
+		}
+	}
+	&__popup {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		position: fixed;
+		top: -300px;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 600px;
+		height: 200px;
+		background-color: rgb(255, 255, 255);
+		border-radius: 8px;
+		border: 2px solid black;
+		transition: top 0.5s;
+		p {
+			font-size: 28px;
+		}
+		button {
+			margin-top: 20px;
+			display: block;
+			padding: 10px 0;
+			margin-left: 10px;
+			width: 100px;
+			font-size: 18px;
+			background-color: rgb(0, 140, 255);
+			color: #fff;
+			border: none;
+			border-radius: 8px;
+			cursor: pointer;
+			transition: background-color 0.3s;
+			&:hover {
+				background-color: rgb(0, 107, 194);
+			}
+		}
+		&.show-popup {
+			top: 400px;
 		}
 	}
 }
+
 footer {
 	padding: 1em 0;
 	text-align: center;
@@ -737,14 +777,6 @@ footer {
 			}
 		}
 	}
-
-	.contact {
-		&__form {
-			&-btn {
-				width: 50%;
-			}
-		}
-	}
 }
 
 @media (min-width: 992px) {
@@ -815,24 +847,6 @@ footer {
 	.contact {
 		h2 {
 			font-size: 2.6rem;
-		}
-		&__container {
-			display: flex;
-			flex-direction: row;
-		}
-		&__info {
-			padding: 0 0.5em;
-			justify-content: space-evenly;
-		}
-		&__form {
-			padding: 0 0.5em;
-			justify-content: space-evenly;
-			&-name {
-				flex-direction: row;
-			}
-			&-username {
-				padding-right: 1em;
-			}
 		}
 	}
 }

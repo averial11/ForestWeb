@@ -32,16 +32,16 @@
         <ul class="nav-mobile__list">
             <li><a href="index.html" class="nav-mobile__link">Home</a></li>
             <li><a href="index.html#about" class="nav-mobile__link">O nas</a></li>
-            <li><a href="offers.html" class="nav-mobile__link">Oferta</a></li>
+            <li><a href="index.html#offers" class="nav-mobile__link">Oferta</a></li>
             <li><a href="contact.html" class="nav-mobile__link">Kontakt</a></li>
         </ul>
 
         <div class="nav-desktop">
-            <p class="nav-desktop__title"><i class="fa-solid fa-tree"></i> Forest</p>
+            <p class="nav-desktop__title" ><i class="fa-solid fa-tree"></i> Forest</p>
             <ul class="nav-desktop__list">
                 <li><a href="index.html" class="nav-desktop__link">Home</a></li>
                 <li><a href="index.html#about" class="nav-desktop__link">O nas</a></li>
-                <li><a href="offers.html" class="nav-desktop__link">Oferta</a></li>
+                <li><a href="index.html#offers" class="nav-desktop__link">Oferta</a></li>
                 <li><a href="contact.html" class="nav-desktop__link">Kontakt</a></li>
             </ul>
         </div>
@@ -56,40 +56,37 @@
 
     <section class="contact">
         <div class="wrapper">
-            <h2 class="contact__title">Kontakt</h2>
-            <div class="contact__container">
-                <div class="contact__info">
-                    <div class="contact__info-title">
-                        <h3>Pozostańmy w kontakcie</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, esse.</p>
-                    </div>
-                    <ul class="contact__info-adress">
-                        <li><i class="fa-solid fa-phone"></i>+48 500 000 000</li>
-                        <li><i class="fa-solid fa-envelope"></i>forestsite@mail.pl</li>
-                        <li><i class="fa-solid fa-location-dot"></i>Kraków, Polska</li>
-                    </ul>
+            <h2>Kontakt</h2>
+            <form>
+                <div class="contact__form-box">
+                    <label for="username">Imie:</label>
+                    <input type="text" id="username" placeholder="Wpisz imie">
+                    <p class="error-text">error</p>
                 </div>
-                <div class="contact__form">
-                    <div class="contact__form-name">
-                        <div class="contact__form-username">
-                            <label for="username">Twoje imię:</label>
-                            <input type="text" id="username" placeholder="Jak się nazywasz?">
-                        </div>
-                        <div>
-                            <label for="mail">Twój e-mail:</label>
-                            <input type="text" id="mail" placeholder="Podaj swój e-mail">
-                        </div>
-                    </div>
-                    <div class="contact__form-subject">
-                        <label for="subject">O czym chcesz napisać?</label>
-                        <input type="text" id="username" placeholder="Podaj krótki tytuł sprawy">
-                        <label for="message">Podaj swoją wiadomość</label>
-                        <textarea id="message" cols="20" rows="5"></textarea>
-                    </div>
-                    <button class="contact__form-btn">Wyślij wiadomość</button>
+                <div class="contact__form-box">
+                    <label for="email">Adres e-mail:</label>
+                    <input type="email" id="email" placeholder="Wpisz adres mailowy">
+                    <p class="error-text">error</p>
                 </div>
-            </div>
-            <div class="contact__map"></div>
+                <div class="contact__form-box">
+                    <label for="phone">Numer telefonu:</label>
+                    <input type="number" id="phone" placeholder="Wpisz numer telefonu">
+                    <p class="error-text">error</p>
+                </div>
+                <div class="contact__form-box">
+                    <label for="text-area">Co chcesz nam powiedzieć?</label>
+                    <textarea name="text-area" class="text-area" id="text-area" cols="30" rows="10" ></textarea>
+                    <p class="error-text">error</p>
+                </div>
+                <div class="contact__control-buttons">
+                    <button class="clear">Wyczyść</button>
+                    <button class="send">Wyślij</button>
+                </div>
+                <div class="contact__popup">
+                    <p>Formularz został poprawnie wysłany!</p>
+                    <button class="close">Zamknij</button>
+                </div>
+            </form>
         </div>
     </section>
 
